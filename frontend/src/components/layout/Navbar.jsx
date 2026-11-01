@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar({ onOpenAuth, onExploreClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,14 +34,14 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group cursor-pointer">
+          <Link to="/" className="flex items-center gap-2 group cursor-pointer">
             <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               <span className="font-black text-base text-emerald-400">⚡</span>
             </div>
             <span className="text-2xl font-black tracking-tight text-white font-display">
               Turf<span className="text-emerald-400 transition-colors group-hover:text-emerald-300">Hub</span>
             </span>
-          </a>
+          </Link>
 
           {/* Center Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
@@ -65,19 +66,25 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
             >
               How it Works
             </button>
-            <button
-              onClick={() => scrollToSection('owner-portal')}
+            <Link
+              to="/owner/dashboard"
               className="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer flex items-center gap-1.5"
             >
               Owner Portal
               <span className="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                 Partner
               </span>
-            </button>
+            </Link>
           </nav>
 
           {/* Right Action Button */}
           <div className="hidden md:flex items-center gap-4">
+            <Link
+              to="/owner/dashboard"
+              className="text-xs font-semibold px-4 py-2 rounded-xl text-slate-300 hover:text-white bg-slate-900/60 border border-white/10 hover:border-emerald-500/40 transition-all"
+            >
+              Owner Console
+            </Link>
             <button
               onClick={onOpenAuth}
               className="text-xs font-semibold px-5 py-2.5 rounded-full border border-emerald-500/50 text-emerald-400 bg-emerald-500/5 hover:bg-emerald-500 hover:text-slate-950 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] cursor-pointer"
@@ -124,12 +131,13 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
           >
             How it Works
           </button>
-          <button
-            onClick={() => scrollToSection('owner-portal')}
-            className="block w-full text-left py-2 text-base font-medium text-slate-200 hover:text-emerald-400"
+          <Link
+            to="/owner/dashboard"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block w-full text-left py-2 text-base font-medium text-emerald-400 hover:text-emerald-300"
           >
-            Owner Portal
-          </button>
+            Owner Portal (Partner)
+          </Link>
           <div className="pt-2 border-t border-slate-800">
             <button
               onClick={() => {
@@ -146,4 +154,3 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
     </header>
   );
 }
-

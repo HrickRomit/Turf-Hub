@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Building2, TrendingUp, CheckCircle, Smartphone, ArrowRight } from 'lucide-react';
 
 export default function OwnerPortalCta() {
@@ -38,14 +39,14 @@ export default function OwnerPortalCta() {
             </div>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
-              <button
-                onClick={() => alert('TurfHub Owner Partner Registration will open shortly!')}
+              <Link
+                to="/owner/dashboard"
                 className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm tracking-wide shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all cursor-pointer flex items-center gap-2"
               >
-                <span>Register Your Dhaka Arena</span>
+                <span>Launch Owner Dashboard</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <span className="text-xs text-slate-400">Zero setup fee for first 50 Dhaka turfs</span>
+              </Link>
+              <span className="text-xs text-slate-400">Live preview for Dhaka arena owners</span>
             </div>
           </div>
 
@@ -69,13 +70,13 @@ export default function OwnerPortalCta() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="p-3 rounded-2xl bg-[#07100b] border border-white/5">
                     <span className="text-[10px] text-slate-400 block">Today's Revenue</span>
-                    <span className="text-xl font-bold text-emerald-400 font-display">BDT 17,500</span>
-                    <span className="text-[10px] text-slate-400 block mt-0.5">+24% vs yesterday</span>
+                    <span className="text-xl font-bold text-emerald-400 font-display">BDT 48,500</span>
+                    <span className="text-[10px] text-slate-400 block mt-0.5">+18% vs yesterday</span>
                   </div>
                   <div className="p-3 rounded-2xl bg-[#07100b] border border-white/5">
                     <span className="text-[10px] text-slate-400 block">Slot Occupancy</span>
-                    <span className="text-xl font-bold text-white font-display">7 / 8 Slots</span>
-                    <span className="text-[10px] text-emerald-400 block mt-0.5">87.5% Full</span>
+                    <span className="text-xl font-bold text-white font-display">14 / 17 Slots</span>
+                    <span className="text-[10px] text-emerald-400 block mt-0.5">82% Full</span>
                   </div>
                 </div>
 
@@ -92,6 +93,16 @@ export default function OwnerPortalCta() {
                     <div className="bg-amber-400 h-full w-3/4 animate-pulse" />
                   </div>
                 </div>
+
+                <div className="pt-2">
+                  <Link
+                    to="/owner/dashboard"
+                    className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-emerald-500/20 hover:text-emerald-300 text-slate-300 border border-white/10 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <span>Open Owner Dashboard Console</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
 
             </div>
@@ -102,4 +113,3 @@ export default function OwnerPortalCta() {
     </section>
   );
 }
-
