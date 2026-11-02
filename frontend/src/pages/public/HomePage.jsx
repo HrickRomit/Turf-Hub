@@ -44,10 +44,6 @@ export default function HomePage() {
       {/* Top Navigation */}
       <Navbar
         onExploreClick={handleScrollToTurfs}
-        onOpenAuth={() => {
-          setSelectedTurfForModal(FEATURED_TURFS[0]);
-          setIsModalOpen(true);
-        }}
       />
 
       {/* Hero Section with exact layout & visual style */}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ onOpenAuth, onExploreClick }) {
+export default function Navbar({ onExploreClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -36,7 +36,7 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group cursor-pointer">
             <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <span className="font-black text-base text-emerald-400">⚡</span>
+              <span className="font-black text-base text-emerald-400">&#9889;</span>
             </div>
             <span className="text-2xl font-black tracking-tight text-white font-display">
               Turf<span className="text-emerald-400 transition-colors group-hover:text-emerald-300">Hub</span>
@@ -85,12 +85,12 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
             >
               Owner Console
             </Link>
-            <button
-              onClick={onOpenAuth}
+            <Link
+              to="/signup"
               className="text-xs font-semibold px-5 py-2.5 rounded-full border border-emerald-500/50 text-emerald-400 bg-emerald-500/5 hover:bg-emerald-500 hover:text-slate-950 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] cursor-pointer"
             >
               Get Started
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -139,15 +139,13 @@ export default function Navbar({ onOpenAuth, onExploreClick }) {
             Owner Portal (Partner)
           </Link>
           <div className="pt-2 border-t border-slate-800">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenAuth) onOpenAuth();
-              }}
-              className="w-full text-center py-2.5 rounded-xl border border-emerald-500/60 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 font-semibold text-sm transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+            <Link
+              to="/signup"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block w-full text-center py-2.5 rounded-xl border border-emerald-500/60 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 font-semibold text-sm transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)]"
             >
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       )}
